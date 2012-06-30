@@ -109,6 +109,7 @@ while(1) {
 	// Check the input for possible commands
 	if(!$br) {
 		switch($in) {
+			case "w":
 			case NCURSES_KEY_UP:
 				$curr--;
 				if($curr<0) {
@@ -118,6 +119,7 @@ while(1) {
 					$i=$i-$ppage;
 				$br=true;
 				break;
+			case "s":
 			case NCURSES_KEY_DOWN:
 				$curr++;
 				if($curr>=$ppage)
@@ -126,6 +128,7 @@ while(1) {
 					$i=$i-$ppage;
 				$br=true;
 				break;
+			case "a":
 			case NCURSES_KEY_LEFT:
 				$i=$i-$ppage*2;
 				$br=true;
@@ -144,11 +147,14 @@ while(1) {
 				ncurses_end();
 				exit();
 				break;
+			case "m":
+			case "x":
 			case ENTER:
 				startg($now[$curr]);
 				$i=$i-$ppage;
 				$br=true;
 				break;
+			case "d":
 			case NCURSES_KEY_RIGHT:
 				$br=true;
 				break;
